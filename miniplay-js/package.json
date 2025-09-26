@@ -1,5 +1,5 @@
 {
-  "name": "miniplay-js",
+  "name": "miniplay-js-src",
   "version": "0.1.0",
   "description": "A lightweight JavaScript library for creating an HTML5 <canvas> with a built-in toolbox for developing games, interactive visuals, and dynamic web experiences. Simplifies rendering, input handling, and game loops so you can focus on building.",
   "keywords": [
@@ -18,5 +18,12 @@
   "license": "Apache-2.0",
   "author": "Ariel Gueta",
   "type": "commonjs",
-  "main": "index.js"
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "5.9.2"
+  }
 }
