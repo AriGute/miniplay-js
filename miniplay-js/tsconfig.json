@@ -7,14 +7,15 @@
 		"allowJs": true,
 		"noImplicitAny": false,
 		"sourceMap": true,
-		"outDir": "../package/library",
+		"outDir": "../package/lib",
 		"declaration": true,
+		"declarationMap": true,
 		"removeComments": true,
 		"baseUrl": ".",
 		"paths": {
 			"*": ["node_modules/*"]
 		}
 	},
-	"exclude": ["../public"],
+	"exclude": ["../dist"],
 	"include": ["./**/*.ts", "./**/*.d.ts"]
 }
