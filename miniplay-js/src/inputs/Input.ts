@@ -4,8 +4,8 @@ import { InputSpecialKeys, keyDownMap, keyUpMap, MouseClickEvent } from './Input
 import { config } from '../../config';
 import { GameObject } from '../abstract/GameObject';
 import { ClickAble } from './ClickAble';
-import { BoxCollider } from '../../modules/collider/BoxCollider';
-import { Point } from '../../modules/Point';
+import { BoxCollider } from '../collider/BoxCollider';
+import { Point } from '../Point';
 
 export class Input {
 	private static scene: Scene = null;

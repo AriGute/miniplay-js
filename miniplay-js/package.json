@@ -20,8 +20,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "devDependencies": {
     "typescript": "5.9.2"

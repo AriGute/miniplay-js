@@ -3,12 +3,12 @@ import { Frame } from '../animations/AnimationInterfaces';
 import { Point } from '../Point';
 import { Camera } from '../Camera';
 import { config } from '../../config';
-import { BoxCollider, LeanPoint, Size } from '../../modules/collider/BoxCollider';
+import { BoxCollider, LeanPoint, Size } from '../collider/BoxCollider';
 import { Path, PathFinding } from './PathFinding';
 import { TileSet, TileBaseType } from './TileSet';
 import { generateId, manhattanDistance } from '../utils';
 import { Connection } from '../networking/Connection';
-import { GameObject } from '../../modules/abstract/GameObject';
+import { GameObject } from '../abstract/GameObject';
 
 export interface TileMapData {
 	_startPoint: LeanPoint;

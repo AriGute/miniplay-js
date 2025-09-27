@@ -1,4 +1,4 @@
-import { GameObject } from '../../modules/abstract/GameObject';
+import { GameObject } from '../abstract/GameObject';
 import { config } from '../../config';
 import { generateId, logger } from '../utils';
 import { ClientGameUpdateType, ClientNetworkEvent, HostGameUpdateType, NetworkEventType } from './ConnectionInterface';

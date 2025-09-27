@@ -3,8 +3,8 @@ import { config } from '../../config';
 import { Scene } from '../abstract/Scene';
 import { AnimationFrames } from '../animations/AnimationFrames';
 import { Point } from '../Point';
-import { Inspector } from '../../modules/Inspector';
-import { generateId } from '../../modules/utils';
+import { Inspector } from '../Inspector';
+import { generateId } from '../utils';
 
 interface Piece {
 	position: Point;

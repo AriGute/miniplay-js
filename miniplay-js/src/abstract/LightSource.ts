@@ -2,7 +2,7 @@ import { config } from '../../config';
 import { Decorate } from './Decorate';
 import { Scene } from './Scene';
 import { Point } from '../Point';
-import { LeanPoint } from '../../modules/collider/BoxCollider';
+import { LeanPoint } from '../collider/BoxCollider';
 
 export abstract class LightSource extends Decorate {
 	public static sources: Map<string, LightSource> = new Map();

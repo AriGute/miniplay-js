@@ -1,14 +1,14 @@
 import { generateId } from '../utils';
 import { Point } from '../Point';
 import { Scene } from './Scene';
-import { BoxCollider, LeanPoint } from '../../modules/collider/BoxCollider';
+import { BoxCollider, LeanPoint } from '../collider/BoxCollider';
 import { RemoteController } from '../networking/RemoteController';
 import { Connection } from '../networking/Connection';
-import { Frame } from '../../modules/animations/AnimationInterfaces';
+import { Frame } from '../animations/AnimationInterfaces';
 import { config } from '../../config';
-import { Path } from '../../modules/tileMap/PathFinding';
-import { Particles } from '../../modules/particleSystem/Particle';
-import { Inspector } from '../../modules/Inspector';
+import { Path } from '../tileMap/PathFinding';
+import { Particles } from '../particleSystem/Particle';
+import { Inspector } from '../Inspector';
 
 export interface DataToSend {
 	// require

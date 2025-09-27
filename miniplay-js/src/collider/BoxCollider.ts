@@ -1,8 +1,7 @@
 import { config } from '../../config';
-import { GameObject } from '../../modules/abstract/GameObject';
+import { GameObject } from '../abstract/GameObject';
 import { Point } from '../Point';
-import { Player } from '../../Scenes/Game/GameObjects/Player';
-import { TileBaseType } from '../../modules/tileMap/TileSet';
+import { TileBaseType } from '../tileMap/TileSet';
 
 type BoxProps = { x: number; y: number; height: number; width: number };
 
@@ -193,7 +192,7 @@ export class BoxCollider {
 	public static checkGlobalCircleCollision(point: Point | LeanPoint, radius: number, targetHitBox: boolean = false): GameObject[] {
 		const hits = [];
 		for (const otherGameObjectCollider of !targetHitBox ? BoxCollider.colliders : BoxCollider.hitBoxColliders) {
-			if (otherGameObjectCollider.owner instanceof Player) continue;
+			if (otherGameObjectCollider.owner.hasTag('ignoreCollider')) continue;
 			if (!otherGameObjectCollider.owner.enable) continue;
 			const otherCollider = otherGameObjectCollider.getBoxProps();
 			const colliderPos = {

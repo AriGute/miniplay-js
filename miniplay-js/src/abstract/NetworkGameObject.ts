@@ -7,7 +7,7 @@ import { Connection } from '../networking/Connection';
 import { ClientGameUpdateType, HostGameUpdateType, NetworkEvent, NetworkEventType } from '../networking/ConnectionInterface';
 import { isNullish, manhattanDistance } from '../utils';
 import { BoxCollider, LeanPoint } from '../collider/BoxCollider';
-import { Inspector } from '../../modules/Inspector';
+import { Inspector } from '../Inspector';
 
 export abstract class NetworkGameObject extends GameObject {
 	/**
