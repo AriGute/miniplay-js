@@ -6,3 +6,4 @@ export * from './src/inputs/index';
 export * from './src/networking/index';
 export * from './src/particleSystem/index';
 export * from './src/tileMap/index';
+export * from './config';
