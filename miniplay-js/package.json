@@ -1,0 +1,18 @@
+{
+  "name": "miniplay-js-src",
+  "version": "0.1.0",
+  "description": "source code for miniplay-js",
+  "keywords": [],
+  "license": "Apache-2.0",
+  "author": "Ariel Gueta",
+  "type": "commonjs",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "copy-package-files-test": "node ./copyPackageFiles.js test",
+    "build-test": "tsc --outDir ./dist/build-test/lib && node ./copyPackageFiles.js test && cd ./dist/build-test && npm pack"
+  },
+  "devDependencies": {
+    "typescript": "5.9.2"
+  }
+}

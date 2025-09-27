@@ -1,0 +1,19 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js",
+    "install-package": "npm install ../miniplay-js/dist/build-test/miniplay-js-0.1.0.tgz"
+  },
+  "dependencies": {
+    "miniplay-js": "file:../miniplay-js/dist/build-test/miniplay-js-0.1.0.tgz"
+  },
+  "devDependencies": {
+    "typescript": "5.9.2"
+  }
+}

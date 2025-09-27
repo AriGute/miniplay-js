@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"target": "esnext",
+		"module": "commonjs",
+		"allowJs": true,
+		"noImplicitAny": false,
+		"sourceMap": true,
+		"outDir": "../package/lib",
+		"declaration": true,
+		"declarationMap": true,
+		"removeComments": true,
+		"baseUrl": ".",
+		"paths": {
+			"*": ["node_modules/*"]
+		}
+	},
+	"exclude": ["../dist"],
+	"include": ["./**/*.ts", "./**/*.d.ts"]
+}
