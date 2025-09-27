@@ -1,10 +1,10 @@
-import { ClientGameUpdateType, HostGameUpdateType, NetworkEvent, NetworkEventType } from '../networking/ConnectionInterface';
-import { Connection } from '../networking/Connection';
-import { AnimationFrames } from './AnimationFrames';
-import { GameObject } from '../abstract/GameObject';
-import { RemoteEvent } from '../networking/RemoteController';
-import { AnimationOptions, CurrentState, StateConnection } from './AnimationInterfaces';
-import { config } from '../../config';
+import { ClientGameUpdateType, HostGameUpdateType, NetworkEvent, NetworkEventType } from '../networking/ConnectionInterface.js';
+import { Connection } from '../networking/Connection.js';
+import { AnimationFrames } from './AnimationFrames.js';
+import { GameObject } from '../abstract/GameObject.js';
+import { RemoteEvent } from '../networking/RemoteController.js';
+import { AnimationOptions, CurrentState, StateConnection } from './AnimationInterfaces.js';
+import { config } from '../../config.js';
 
 export class AnimationStateMachine {
 	private owner: GameObject = null;

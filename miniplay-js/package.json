@@ -5,12 +5,12 @@
   "keywords": [],
   "license": "Apache-2.0",
   "author": "Ariel Gueta",
-  "type": "commonjs",
+  "type": "module",
   "types": "index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "copy-package-files-test": "node ./copyPackageFiles.js test",
-    "build-test": "tsc --outDir ./dist/build-test/lib && node ./copyPackageFiles.js test && cd ./dist/build-test && npm pack"
+    "build": "tsc --outDir ./dist/build-test/lib",
+    "copy-package-files-test": "node ./copyPackageFiles.cjs test",
+    "build-test": "tsc --outDir ./dist/build-test/lib && node ./copyPackageFiles.cjs test && cd ./dist/build-test && npm pack"
   },
   "devDependencies": {
     "typescript": "5.9.2"

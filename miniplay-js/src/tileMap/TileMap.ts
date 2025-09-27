@@ -1,14 +1,14 @@
-import { Scene } from '../abstract/Scene';
-import { Frame } from '../animations/AnimationInterfaces';
-import { Point } from '../Point';
-import { Camera } from '../Camera';
-import { config } from '../../config';
-import { BoxCollider, LeanPoint, Size } from '../collider/BoxCollider';
-import { Path, PathFinding } from './PathFinding';
-import { TileSet, TileBaseType } from './TileSet';
-import { generateId, manhattanDistance } from '../utils';
-import { Connection } from '../networking/Connection';
-import { GameObject } from '../abstract/GameObject';
+import { Scene } from '../abstract/Scene.js';
+import { Frame } from '../animations/AnimationInterfaces.js';
+import { Point } from '../Point.js';
+import { Camera } from '../Camera.js';
+import { config } from '../../config.js';
+import { LeanPoint, Size } from '../collider/BoxCollider.js';
+import { Path, PathFinding } from './PathFinding.js';
+import { TileSet, TileBaseType } from './TileSet.js';
+import { generateId, manhattanDistance } from '../utils.js';
+import { Connection } from '../networking/Connection.js';
+import { GameObject } from '../abstract/GameObject.js';
 
 export interface TileMapData {
 	_startPoint: LeanPoint;

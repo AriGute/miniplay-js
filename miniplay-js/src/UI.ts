@@ -1,7 +1,6 @@
-import { config } from '../config';
-import { LeanPoint } from './collider/BoxCollider';
-import { Inspector } from './Inspector';
-import { Point } from './Point';
+import { config } from '../config.js';
+import { LeanPoint } from './collider/BoxCollider.js';
+import { Point } from './Point.js';
 
 interface UiImgComponents {
 	img: ImageBitmap;

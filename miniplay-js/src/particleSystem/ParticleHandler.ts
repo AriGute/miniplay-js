@@ -1,4 +1,4 @@
-import { Particles } from './Particle';
+import { Particles } from './Particle.js';
 
 export class ParticleHandler extends Particles {
 	public static drawParticles(context2d: CanvasRenderingContext2D) {

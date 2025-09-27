@@ -1,5 +1,5 @@
-import { config } from '../../config';
-import { Connection } from './Connection';
+import { config } from '../../config.js';
+import { Connection } from './Connection.js';
 
 export class WebRTCHandler {
 	/**

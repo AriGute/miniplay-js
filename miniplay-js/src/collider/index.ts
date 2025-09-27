@@ -1,1 +1,1 @@
-export * from './BoxCollider';
+export * from './BoxCollider.js';

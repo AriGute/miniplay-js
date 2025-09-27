@@ -1,11 +1,11 @@
-import { isNullish } from '../utils';
-import { Scene } from '../abstract/Scene';
-import { InputSpecialKeys, keyDownMap, keyUpMap, MouseClickEvent } from './InputInterfaces';
-import { config } from '../../config';
-import { GameObject } from '../abstract/GameObject';
-import { ClickAble } from './ClickAble';
-import { BoxCollider } from '../collider/BoxCollider';
-import { Point } from '../Point';
+import { isNullish } from '../utils.js';
+import { Scene } from '../abstract/Scene.js';
+import { InputSpecialKeys, keyDownMap, keyUpMap, MouseClickEvent } from './InputInterfaces.js';
+import { config } from '../../config.js';
+import { GameObject } from '../abstract/GameObject.js';
+import { ClickAble } from './ClickAble.js';
+import { BoxCollider } from '../collider/BoxCollider.js';
+import { Point } from '../Point.js';
 
 export class Input {
 	private static scene: Scene = null;

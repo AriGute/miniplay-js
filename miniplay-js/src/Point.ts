@@ -1,6 +1,6 @@
-import { config } from '../config';
-import { Camera } from './Camera';
-import { LeanPoint } from './collider/BoxCollider';
+import { config } from '../config.js';
+import { Camera } from './Camera.js';
+import { LeanPoint } from './collider/BoxCollider.js';
 
 export interface NormalizedDirection {
 	dirX: number;

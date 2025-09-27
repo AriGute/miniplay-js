@@ -3,20 +3,15 @@
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"target": "es2023",
-		"module": "node20",
-		"moduleResolution": "nodenext",
+		"module": "es2020",
 		"allowJs": true,
 		"noImplicitAny": false,
 		"sourceMap": true,
-		"outDir": "../package/lib",
+		"outDir": "./dist",
 		"declaration": true,
 		"declarationMap": true,
-		"removeComments": true,
-		"baseUrl": ".",
-		"paths": {
-			"*": ["node_modules/*"]
-		}
+		"removeComments": true
 	},
-	"exclude": ["../dist", "copyPackageFiles.cjs"],
+	"exclude": ["../dist"],
 	"include": ["./**/*.ts", "./**/*.d.ts"]
 }

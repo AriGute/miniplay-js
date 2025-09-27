@@ -1,7 +1,7 @@
-import { Scene } from './Scene';
-import { Point } from '../Point';
-import { GameObject } from './GameObject';
-import { AnimationStateMachine } from '../animations/AnimationStateMachine';
+import { Scene } from './Scene.js';
+import { Point } from '../Point.js';
+import { GameObject } from './GameObject.js';
+import { AnimationStateMachine } from '../animations/AnimationStateMachine.js';
 
 export abstract class Decorate extends GameObject {
 	protected animationStateMachine: AnimationStateMachine = null;

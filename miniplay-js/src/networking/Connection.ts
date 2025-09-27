@@ -1,9 +1,9 @@
-import { GameObject } from '../abstract/GameObject';
-import { config } from '../../config';
-import { generateId, logger } from '../utils';
-import { ClientGameUpdateType, ClientNetworkEvent, HostGameUpdateType, NetworkEventType } from './ConnectionInterface';
-import { RemoteController, RemoteEvent } from './RemoteController';
-import { WebRTCHandler } from './WebRTCHandler';
+import { GameObject } from '../abstract/GameObject.js';
+import { config } from '../../config.js';
+import { generateId, logger } from '../utils.js';
+import { ClientGameUpdateType, ClientNetworkEvent, HostGameUpdateType, NetworkEventType } from './ConnectionInterface.js';
+import { RemoteController, RemoteEvent } from './RemoteController.js';
+import { WebRTCHandler } from './WebRTCHandler.js';
 
 export class Connection {
 	public static webRTCHandler: WebRTCHandler;

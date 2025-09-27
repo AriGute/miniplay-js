@@ -1,10 +1,9 @@
-import { Frame, FrameCut } from '../animations/AnimationInterfaces';
-import { config } from '../../config';
-import { Scene } from '../abstract/Scene';
-import { AnimationFrames } from '../animations/AnimationFrames';
-import { Point } from '../Point';
-import { Inspector } from '../Inspector';
-import { generateId } from '../utils';
+import { Frame, FrameCut } from '../animations/AnimationInterfaces.js';
+import { config } from '../../config.js';
+import { Scene } from '../abstract/Scene.js';
+import { AnimationFrames } from '../animations/AnimationFrames.js';
+import { Point } from '../Point.js';
+import { generateId } from '../utils.js';
 
 interface Piece {
 	position: Point;
@@ -31,7 +30,7 @@ interface ParticleOptions {
 
 export class Particles {
 	protected static particlesMap: Map<string, Particles> = new Map();
-	private id: string = '';
+	private id: string = '.js';
 	private _enable: boolean = true;
 
 	public set enable(v: boolean) {

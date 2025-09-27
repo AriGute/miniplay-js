@@ -1,6 +1,6 @@
-import { config } from '../config';
-import { GameObject } from './abstract/GameObject';
-import { Point } from './Point';
+import { config } from '../config.js';
+import { GameObject } from './abstract/GameObject.js';
+import { Point } from './Point.js';
 
 export class Camera {
 	public static get heigh(): number {

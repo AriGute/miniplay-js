@@ -1,2 +1,2 @@
-export * from './Particle';
-export * from './ParticleHandler';
+export * from './Particle.js';
+export * from './ParticleHandler.js';

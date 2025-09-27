@@ -1,7 +1,7 @@
-import { config } from '../../config';
-import { GameObject } from '../abstract/GameObject';
-import { Point } from '../Point';
-import { TileBaseType } from '../tileMap/TileSet';
+import { config } from '../../config.js';
+import { GameObject } from '../abstract/GameObject.js';
+import { Point } from '../Point.js';
+import { TileBaseType } from '../tileMap/TileSet.js';
 
 type BoxProps = { x: number; y: number; height: number; width: number };
 

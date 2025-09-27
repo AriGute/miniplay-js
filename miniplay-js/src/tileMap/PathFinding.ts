@@ -1,10 +1,9 @@
-import { Point } from '../Point';
-import { LeanPoint } from '../collider/BoxCollider';
-import { MinTileHeap } from './MinTileHeap';
-import { config } from '../../config';
-import { TileBaseType } from './TileSet';
-import { manhattanDistance } from '../utils';
-import { Scene } from '../abstract/Scene';
+import { LeanPoint } from '../collider/BoxCollider.js';
+import { MinTileHeap } from './MinTileHeap.js';
+import { config } from '../../config.js';
+import { TileBaseType } from './TileSet.js';
+import { manhattanDistance } from '../utils.js';
+import { Scene } from '../abstract/Scene.js';
 
 export interface TileScore {
 	x: number;

@@ -1,5 +1,5 @@
-import { config } from '../../config';
-import { AnimationOptions, Frame, FrameCut, FrameRelativePosition } from './AnimationInterfaces';
+import { config } from '../../config.js';
+import { AnimationOptions, Frame, FrameCut, FrameRelativePosition } from './AnimationInterfaces.js';
 
 interface CachedImages {
 	img: HTMLImageElement;

@@ -1,4 +1,4 @@
-import { TileScore } from './PathFinding';
+import { TileScore } from './PathFinding.js';
 
 export class MinTileHeap {
 	private heap: TileScore[];

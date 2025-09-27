@@ -1,3 +1,3 @@
-export * from './AnimationFrames';
-export * from './AnimationInterfaces';
-export * from './AnimationStateMachine';
+export * from './AnimationFrames.js';
+export * from './AnimationInterfaces.js';
+export * from './AnimationStateMachine.js';

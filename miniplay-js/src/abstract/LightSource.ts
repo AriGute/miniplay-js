@@ -1,8 +1,8 @@
-import { config } from '../../config';
-import { Decorate } from './Decorate';
-import { Scene } from './Scene';
-import { Point } from '../Point';
-import { LeanPoint } from '../collider/BoxCollider';
+import { config } from '../../config.js';
+import { Decorate } from './Decorate.js';
+import { Scene } from './Scene.js';
+import { Point } from '../Point.js';
+import { LeanPoint } from '../collider/BoxCollider.js';
 
 export abstract class LightSource extends Decorate {
 	public static sources: Map<string, LightSource> = new Map();

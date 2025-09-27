@@ -1,8 +1,6 @@
-import { config } from '../config';
-import { LightSource } from './abstract/LightSource';
-import { BoxCollider } from './collider/BoxCollider';
-import { Inspector } from './Inspector';
-import { Point } from './Point';
+import { config } from '../config.js';
+import { LightSource } from './abstract/LightSource.js';
+import { BoxCollider } from './collider/BoxCollider.js';
 // https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/brightness
 
 // const imgSrc = '../../assets/circle_white_gradient64x64.png';

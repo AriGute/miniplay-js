@@ -1,5 +1,5 @@
-import { GameObject } from '../abstract/GameObject';
-import { LeanPoint } from '../collider/BoxCollider';
+import { GameObject } from '../abstract/GameObject.js';
+import { LeanPoint } from '../collider/BoxCollider.js';
 
 export enum InputSpecialKeys {
 	leftClick = 0,
