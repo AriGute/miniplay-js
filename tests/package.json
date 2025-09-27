@@ -7,6 +7,10 @@
   "type": "commonjs",
   "main": "main.js",
   "scripts": {
-    "test": "node main.js"
+    "test": "node main.js",
+    "install-package": "npm install ../miniplay-js/dist/build-test/miniplay-js-0.1.0.tgz"
+  },
+  "dependencies": {
+    "miniplay-js": "file:../miniplay-js/dist/build-test/miniplay-js-0.1.0.tgz"
   }
 }
