@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc --outDir ./dist/build-test/lib",
     "copy-package-files-test": "node ./copyPackageFiles.cjs test",
-    "build-test": "tsc --outDir ./dist/build-test/lib && node ./copyPackageFiles.cjs test && cd ./dist/build-test && npm pack"
+    "build-test": "node ./copyPackageFiles.cjs test && tsc --outDir ./dist/build-test/lib && cd ./dist/build-test && npm pack"
   },
   "devDependencies": {
     "typescript": "5.9.2"

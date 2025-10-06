@@ -180,7 +180,7 @@ export class Point {
 		const newX = point1.x + scaledDx;
 		const newY = point1.y + scaledDy;
 
-		return { x: newX, y: newY };
+		return { x: Math.round(newX), y: Math.round(newY) };
 	}
 
 	public static getNormalizedDirection(p1: Point | LeanPoint, p2: Point | LeanPoint): NormalizedDirection {

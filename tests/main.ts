@@ -1,4 +1,4 @@
-import { Scene } from './node_modules/miniplay-js/lib/index';
+import { Scene } from 'miniplay-js';
 
 class TestClass extends Scene {
 	onLoad(): void {

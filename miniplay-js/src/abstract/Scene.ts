@@ -1,21 +1,24 @@
-import { config } from '../../config.js';
-import { GameObject } from './GameObject.js';
-import { Point } from '../Point.js';
-import { BoxCollider } from '../collider/BoxCollider.js';
-import { Input } from '../inputs/Input.js';
-import { Connection } from '../networking/Connection.js';
-import { HostGameUpdateType } from '../networking/ConnectionInterface.js';
-import { TileMap } from '../tileMap/TileMap.js';
-import { ParticleHandler } from '../particleSystem/ParticleHandler.js';
-import { drawLight as drawLight, drawShadow, operationGenerator } from '../LightEffect.js';
-import { UI } from '../UI.js';
-import { Inspector } from '../Inspector.js';
-import { generateId } from '../utils.js';
-import { NetworkGameObject } from './NetworkGameObject.js';
-import { Particles } from '../particleSystem/Particle.js';
-import { LightSource } from './LightSource.js';
-import { AnimationFrames } from './../animations/AnimationFrames.js';
-import { PathFinding } from './../tileMap/PathFinding.js';
+import {
+	AnimationFrames,
+	BoxCollider,
+	config,
+	Connection,
+	drawLight,
+	drawShadow,
+	GameObject,
+	generateId,
+	HostGameUpdateType,
+	Input,
+	Inspector,
+	LightSource,
+	NetworkGameObject,
+	ParticleHandler,
+	Particles,
+	PathFinding,
+	Point,
+	TileMap,
+	UI,
+} from '../../index.js';
 
 export type NextScene = (scene: Scene) => void;
 export enum SceneStates {
@@ -119,6 +122,24 @@ export abstract class Scene {
 				y: this.canvas.getBoundingClientRect().top,
 			};
 		});
+
+		const style = this.element({ type: 'style' });
+		style.innerHTML = `
+			.prevent-select {
+				-webkit-user-select: none; 
+				-ms-user-select: none; 
+				user-select: none;
+			}
+			canvas.pixelArtStyle {
+				image-rendering: -moz-crisp-edges;
+				image-rendering: -o-crisp-edges;
+				image-rendering: -webkit-optimize-contrast;
+				-ms-interpolation-mode: nearest-neighbor;
+			}
+				`;
+
+		this.addElement(style);
+
 		this.state = SceneStates.loading;
 		this.onLoad();
 		setTimeout(() => {
@@ -292,19 +313,6 @@ export abstract class Scene {
 				this.context2d.globalCompositeOperation = 'source-over';
 				// TODO: prepareNextDraw decouple update and draw
 				this._tileMap && this._tileMap.prepareNextDraw(this.context2d);
-				// this._tileMap &&
-				// 	this.context2d.drawImage(
-				// 		this._tileMap.backGroundCanvas,
-				// 		0,
-				// 		0,
-				// 		config.graphics.targetResolution.width,
-				// 		config.graphics.targetResolution.height,
-				// 		0,
-				// 		0,
-				// 		config.graphics.targetResolution.width,
-				// 		config.graphics.targetResolution.height,
-				// 	);
-				// draw nonsequence gameObjects as background
 				GameObject.gameObjectNonSequence?.forEach((object) => {
 					if (object.enable) {
 						object.draw(this.context2d);

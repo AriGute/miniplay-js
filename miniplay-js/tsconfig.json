@@ -11,12 +11,8 @@
 		"outDir": "../package/lib",
 		"declaration": true,
 		"declarationMap": true,
-		"removeComments": true,
-		"baseUrl": ".",
-		"paths": {
-			"*": ["node_modules/*"]
-		}
+		"removeComments": true
 	},
-	"exclude": ["../dist", "copyPackageFiles.cjs"],
+	"exclude": ["./dist", "copyPackageFiles.cjs"],
 	"include": ["./**/*.ts", "./**/*.d.ts"]
 }

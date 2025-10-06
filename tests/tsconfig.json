@@ -1,10 +1,13 @@
 {
 	"compilerOptions": {
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
 		"target": "es2023",
-		"module": "es2020",
+		"module": "es2022",
+		"moduleResolution": "Bundler",
+		"allowSyntheticDefaultImports": true,
 		"allowJs": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
 		"noImplicitAny": false,
 		"sourceMap": true,
 		"outDir": "./dist",
@@ -12,6 +15,6 @@
 		"declarationMap": true,
 		"removeComments": true
 	},
-	"exclude": ["../dist"],
+	"exclude": ["./dist"],
 	"include": ["./**/*.ts", "./**/*.d.ts"]
 }

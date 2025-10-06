@@ -63,17 +63,21 @@ export abstract class TileMap {
 
 	private _enable: boolean = false;
 	public set enable(v: boolean) {
-		if (v === true) {
-			this._relatedObjects = this._relatedObjects.filter((object) => {
-				if (object.objectId === undefined) {
-					return false;
-				} else {
-					return true;
-				}
-			});
-			this._relatedObjects.forEach((object) => (object.enable = true));
-		} else if (v === false) {
-			this._relatedObjects.forEach((object) => (object.enable = false));
+		if (this._relatedObjects) {
+			if (v === true) {
+				this._relatedObjects = this._relatedObjects.filter((object) => {
+					if (object.objectId === undefined) {
+						return false;
+					} else {
+						return true;
+					}
+				});
+				this._relatedObjects.forEach((object) => (object.enable = true));
+			} else if (v === false) {
+				this._relatedObjects.forEach((object) => (object.enable = false));
+			}
+		} else {
+			this._relatedObjects = [];
 		}
 		this._enable = v;
 	}
@@ -510,13 +514,14 @@ export abstract class TileMap {
 	}
 
 	private *spawnPointGenerator() {
-		const spawnRadius = config.graphics.tileMap.tileSize / 2;
-		while (true) {
-			yield new Point(this.startPoint.x - spawnRadius, this.startPoint.y + spawnRadius);
-			yield new Point(this.startPoint.x + spawnRadius, this.startPoint.y + spawnRadius);
-			yield new Point(this.startPoint.x + spawnRadius, this.startPoint.y - spawnRadius);
-			yield new Point(this.startPoint.x - spawnRadius, this.startPoint.y - spawnRadius);
-		}
+		yield this.startPoint;
+		// const spawnRadius = config.graphics.tileMap.tileSize / 2;
+		// while (true) {
+		// 	yield new Point(this.startPoint.x - spawnRadius, this.startPoint.y + spawnRadius);
+		// 	yield new Point(this.startPoint.x + spawnRadius, this.startPoint.y + spawnRadius);
+		// 	yield new Point(this.startPoint.x + spawnRadius, this.startPoint.y - spawnRadius);
+		// 	yield new Point(this.startPoint.x - spawnRadius, this.startPoint.y - spawnRadius);
+		// }
 	}
 
 	public findPath(startPosition: Point | LeanPoint, targetPosition: Point | LeanPoint): Path {
