@@ -313,6 +313,20 @@ export abstract class Scene {
 				this.context2d.globalCompositeOperation = 'source-over';
 				// TODO: prepareNextDraw decouple update and draw
 				this._tileMap && this._tileMap.prepareNextDraw(this.context2d);
+				this._tileMap &&
+					this.context2d.drawImage(
+						this._tileMap.backGroundCanvas,
+						0,
+						0,
+						config.graphics.targetResolution.width,
+						config.graphics.targetResolution.height,
+						0,
+						0,
+						config.graphics.targetResolution.width,
+						config.graphics.targetResolution.height,
+					);
+
+				// draw nonsequence gameObjects as background
 				GameObject.gameObjectNonSequence?.forEach((object) => {
 					if (object.enable) {
 						object.draw(this.context2d);

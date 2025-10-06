@@ -184,7 +184,7 @@ export abstract class TileMap {
 				const { img, frameCut } = this.getTile(x, y) || { img: null, frameCut: null };
 				if (img) {
 					const position = new Point(x * frameCut.width, y * frameCut.height, true);
-					context2d.drawImage(
+					this.backGroundContext2d.drawImage(
 						img,
 						frameCut.sourceX,
 						frameCut.sourceY,
