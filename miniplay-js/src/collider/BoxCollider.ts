@@ -259,6 +259,19 @@ export class BoxCollider {
 		return hit;
 	}
 
+	public static checkTileMapCollision(pointToTest: LeanPoint, tileMapFilter?: TileBaseType[]): boolean {
+		const normalizedPoint = {
+			x: pointToTest.x + config.graphics.tileMap.tileSize / 2,
+			y: pointToTest.y - config.graphics.tileMap.tileSize / 3,
+		};
+		let hit = BoxCollider.tileMapCollideFunction(
+			normalizedPoint,
+			{ width: config.graphics.tileMap.tileSize, height: config.graphics.tileMap.tileSize },
+			tileMapFilter,
+		);
+		return hit;
+	}
+
 	public static setTileMapCollideFunction(collideFunction: (PointToTest, Size) => boolean) {
 		BoxCollider.tileMapCollideFunction = collideFunction;
 	}

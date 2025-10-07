@@ -7,7 +7,6 @@
 		"moduleResolution": "nodenext",
 		"allowJs": true,
 		"noImplicitAny": false,
-		"sourceMap": true,
 		"outDir": "../package/lib",
 		"declaration": true,
 		"declarationMap": true,
