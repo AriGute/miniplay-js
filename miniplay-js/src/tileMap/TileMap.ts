@@ -503,7 +503,7 @@ export abstract class TileMap {
 		if (!this.isTileOnMap(normalizedPosition)) return true;
 		if (this._tileMap[normalizedPosition.y]) {
 			const tile: TileBaseType = this._tileMap[normalizedPosition.y][normalizedPosition.x];
-			if (this.walkableTiles.includes(tile) && customTileFilter && !customTileFilter.includes(tile)) {
+			if (this.walkableTiles.includes(tile) || (customTileFilter && !customTileFilter.includes(tile))) {
 				return false;
 			} else {
 				return true;

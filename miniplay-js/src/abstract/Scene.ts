@@ -38,6 +38,23 @@ export interface ElementOptions {
 }
 
 export abstract class Scene {
+	private _pause: boolean = false;
+
+	public set pause(v: boolean) {
+		this._pause = v;
+		if (v) {
+			this.stopDrawing();
+			this.stopUpdating();
+		} else {
+			this.startUpdating();
+			this.startDrawing();
+		}
+	}
+
+	public get pause(): boolean {
+		return this._pause;
+	}
+
 	private _onstatechange: Function[] = [];
 	private nextFrame: number = 0;
 	public set onstatechange(func: () => void) {

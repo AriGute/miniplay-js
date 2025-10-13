@@ -159,6 +159,7 @@ export class BoxCollider {
 		for (const otherGameObjectCollider of !targetBoxCollider ? BoxCollider.colliders : BoxCollider.hitBoxColliders) {
 			for (let i = 0; i < colliders.length; i++) {
 				const collider = colliders[i];
+				if (otherGameObjectCollider === collider) return false;
 				if (collider.active) {
 					const positionToCheck = pointToTest
 						? {
@@ -168,7 +169,7 @@ export class BoxCollider {
 						: { x: collider.x, y: collider.y };
 
 					collider.isCollide = collider.checkCollision(otherGameObjectCollider, positionToCheck);
-					if (collider.isCollide && !ignoreTags.some((tag) => otherGameObjectCollider.owner.hasTag(tag))) return collider.isCollide;
+					if (collider.isCollide && !ignoreTags?.some((tag) => otherGameObjectCollider.owner.hasTag(tag))) return collider.isCollide;
 
 					collider.isCollide = BoxCollider.tileMapCollideFunction(
 						{ x: pointToTest.relativeX, y: pointToTest.relativeY },
@@ -261,8 +262,8 @@ export class BoxCollider {
 
 	public static checkTileMapCollision(pointToTest: LeanPoint, tileMapFilter?: TileBaseType[]): boolean {
 		const normalizedPoint = {
-			x: pointToTest.x + config.graphics.tileMap.tileSize / 2,
-			y: pointToTest.y - config.graphics.tileMap.tileSize / 3,
+			x: pointToTest.x + config.graphics.tileMap.tileSize,
+			y: pointToTest.y - config.graphics.tileMap.tileSize,
 		};
 		let hit = BoxCollider.tileMapCollideFunction(
 			normalizedPoint,
