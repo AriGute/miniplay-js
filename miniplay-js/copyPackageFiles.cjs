@@ -7,7 +7,7 @@ const env = args[0] === 'test' ? 'test' : args[0] === 'publish' ? 'publish' : nu
 
 console.log('Arguments provided:', args);
 
-const files = ['.npmignore', 'LICENSE.txt', 'package.json', 'README.txt'];
+const files = ['.npmignore', 'LICENSE.txt', 'package.json', 'README.md'];
 const srcDir = path.join(__dirname, 'package_config');
 let rootDest = '';
 switch (env) {
@@ -19,7 +19,7 @@ switch (env) {
 		break;
 
 	default:
-		throw Error('Use env "test" or "publish"');
+		throw new Error('Use env "test" or "publish"');
 		break;
 }
 const destDir = path.join(rootDest);
@@ -50,18 +50,18 @@ if (validate()) {
 
 function validate() {
 	if (env == false) {
-		throw Error('env is false.');
+		throw new Error('env is false.');
 	}
 
 	if (!fs.existsSync(srcDir)) {
-		throw Error('srcDir not exist.');
+		throw new Error('srcDir not exist.');
 	}
 
 	files.forEach((file) => {
 		const src = path.join(srcDir, file);
 		// Ensure files exists
 		if (!fs.existsSync(src)) {
-			throw Error(`file ${file} is missing.`);
+			throw new Error(`file ${file} is missing.`);
 		}
 	});
 
