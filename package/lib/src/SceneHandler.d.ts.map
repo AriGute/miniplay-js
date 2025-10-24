@@ -1,1 +1,0 @@
-{"version":3,"file":"SceneHandler.d.ts","sourceRoot":"","sources":["../../../miniplay-js/src/SceneHandler.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,MAAM,qBAAqB,CAAC;AAE5C,qBAAa,YAAY;IACxB,OAAO,CAAC,GAAG,CAAW;IACtB,OAAO,CAAC,YAAY,CAAe;gBAEvB,GAAG,CAAC,EAAE,QAAQ;IAInB,IAAI,CAAC,SAAS,EAAE,KAAK;CAU5B"}

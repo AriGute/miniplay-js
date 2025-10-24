@@ -1,7 +1,9 @@
-# miniplay-js 0.3.5
+# miniplay-js
 
 A lightweight TypeScript library for creating an HTML5 `<canvas>` with a built-in toolbox for developing games, interactive visuals, and dynamic web experiences.
 Simplifies rendering, input handling, and game loops so you can focus on building.
+
+---
 
 ## Features
 
@@ -11,39 +13,60 @@ Simplifies rendering, input handling, and game loops so you can focus on buildin
 - Configurable resolution and scaling
 - TypeScript-first design with strong typings
 
-## Quick Start - Local Development Testing
+---
 
-1.  **In the `miniplay-js` package directory:**
+## Quick Start
 
-    - Build the package: `npm run build-dev`
-      - build the package inside `/dist/build-dev`
-      - create a local package `miniplay-js-[version].tgz`
-    - Register the package globally:
-      - go to `/dist/build-dev`
-      - run `npm link`
+Here’s a minimal example demonstrating how to set up and run a simple game using miniplay-js.
 
-2.  **In your consuming repository:**
+```typescript
+// Game.ts
+import { Scene, config } from 'miniplay-js';
 
-    - Link the local package to your project's `node_modules`: `npm link miniplay-js`
-    - _You can now import and use `miniplay-js` as if it were installed from the registry._
+export class Game extends Scene {
+	onLoad(): void {
+		this.setGameConfig();
+		const canvas = this.createGameCanvas();
+		this.addElement(canvas);
+	}
 
-3.  **To unlink and return to normal:**
-    - In the consuming repo: `npm unlink miniplay-js`
-    - In the `miniplay-js` package: `npm unlink`
+	onStart(): void {
+		// Called when the game starts
+	}
 
-## Quick Start - Pre-Publish Verification
+	onConnectionLost(): void {
+		// Handle network disconnects or session loss
+	}
 
-This process verifies the exact files that will be uploaded to npm.
+	private setGameConfig() {
+		config.graphics.targetResolution.height = 320;
+		config.graphics.targetResolution.width = 192;
+		config.graphics.scaledResolution.height = 400;
+		config.graphics.scaledResolution.width = 300;
+	}
 
-1.  **In the `miniplay-js` package directory:**
+	constructor() {
+		super();
+	}
+}
+```
 
-    - Run your build script: `npm run build`
-    - Generate the package tarball: `npm pack`
-    - _This will create a file (e.g., `miniplay-js-1.0.0.tgz`) in your root directory._
+```typescript
+// index.ts
+const demoGame = new Game();
+demoGame.start();
+```
 
-2.  **In your consuming repository:**
-    - Install the local tarball:
-      `npm install /path/to/miniplay-js/miniplay-js-1.0.0.tgz`
+### Folder Structure Example
+
+```
+my-game/
+├── src/
+│   ├── Game.ts
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
 
 ## License
 

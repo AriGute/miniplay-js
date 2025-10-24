@@ -8,12 +8,14 @@
   "main": "main.ts",
   "scripts": {
     "test": "tsc",
-    "install-package": "npm install ../miniplay-js/dist/build-dev/miniplay-js-0.1.0.tgz"
-  },
-  "dependencies": {
-    "miniplay-js": "file:../miniplay-js/dist/build-dev/miniplay-js-0.1.0.tgz"
+    "link-package": "npm link ../../miniplay-js",
+    "install-package": "npm install ../miniplay-js-0.3.8.tgz"
   },
   "devDependencies": {
     "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "miniplay-js": "file:../miniplay-js-0.3.8.tgz",
+    "miniplay-js-src": "file:../miniplay-js-0.3.8.tgz"
   }
 }

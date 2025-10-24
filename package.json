@@ -32,5 +32,13 @@
   "types": "./lib/index.d.ts",
   "exports": {
     ".": "./lib/index.js"
+  },
+  "scripts": {
+    "build": "tsc --outDir ./lib",
+    "pack": "npm pack",
+    "publish": "npm publish"
+  },
+  "devDependencies": {
+    "typescript": "5.9.2"
   }
 }

@@ -13,5 +13,5 @@
 		"removeComments": true
 	},
 	"exclude": ["./dist", "copyPackageFiles.cjs"],
-	"include": ["./**/*.ts", "./**/*.d.ts"]
+	"include": ["./src/*.ts", "./sec/*.d.ts"]
 }

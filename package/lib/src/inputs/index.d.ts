@@ -1,4 +1,0 @@
-export * from './ClickAble.js';
-export * from './Input.js';
-export * from './InputInterfaces.js';
-//# sourceMappingURL=index.d.ts.map
