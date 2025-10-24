@@ -15,6 +15,12 @@ Simplifies rendering, input handling, and game loops so you can focus on buildin
 
 ---
 
+## Installation
+
+```
+npm i miniplay-js
+```
+
 ## Quick Start
 
 Here’s a minimal example demonstrating how to set up and run a simple game using miniplay-js.
