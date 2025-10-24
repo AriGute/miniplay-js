@@ -9,8 +9,26 @@ console.log('Arguments provided:', args);
 
 const files = ['.npmignore', 'LICENSE.txt', 'package.json', 'README.txt'];
 const srcDir = path.join(__dirname, 'package_config');
-const rootDest = path.join(__dirname, 'dist', env === 'test' && 'build-test');
+let rootDest = '';
+switch (env) {
+	case 'test':
+		rootDest = path.join(__dirname, 'dist', 'build-test');
+		break;
+	case 'prod':
+		rootDest = path.join(__dirname, '..', 'package');
+		break;
+
+	default:
+		throw Error('Use env "test" or "prod"');
+		break;
+}
 const destDir = path.join(rootDest);
+
+// remove existing files
+// if (fs.existsSync(destDir)) {
+// 	console.log(`remove old files at: ${destDir}`);
+// 	removeDirectory(destDir);
+// }
 
 if (validate()) {
 	files.forEach((file) => {
@@ -48,4 +66,13 @@ function validate() {
 	});
 
 	return true;
+}
+
+function removeDirectory(directoryPath) {
+	try {
+		fs.rmSync(directoryPath, { recursive: true, force: true });
+		console.log(`Directory '${directoryPath}' and its contents removed successfully.`);
+	} catch (err) {
+		console.error(`Error removing directory '${directoryPath}':`, err);
+	}
 }

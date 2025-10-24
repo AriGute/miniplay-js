@@ -1,13 +1,13 @@
-import { DataToSend, GameObject } from './GameObject';
-import { AnimationStateMachine } from '../animations/AnimationStateMachine';
-import { Scene } from './Scene';
-import { NormalizedDirection, Point } from '../Point';
-import { RemoteController, RemoteEvent } from '../networking/RemoteController';
-import { Connection } from '../networking/Connection';
-import { ClientGameUpdateType, HostGameUpdateType, NetworkEvent, NetworkEventType } from '../networking/ConnectionInterface';
-import { isNullish, manhattanDistance } from '../utils';
-import { BoxCollider, LeanPoint } from '../collider/BoxCollider';
-import { Inspector } from '../Inspector';
+import { DataToSend, GameObject } from './GameObject.js';
+import { AnimationStateMachine } from '../animations/AnimationStateMachine.js';
+import { Scene } from './Scene.js';
+import { NormalizedDirection, Point } from '../Point.js';
+import { RemoteController, RemoteEvent } from '../networking/RemoteController.js';
+import { Connection } from '../networking/Connection.js';
+import { ClientGameUpdateType, HostGameUpdateType, NetworkEvent, NetworkEventType } from '../networking/ConnectionInterface.js';
+import { isNullish, manhattanDistance } from '../utils.js';
+import { BoxCollider, LeanPoint } from '../collider/BoxCollider.js';
+import { Inspector } from '../Inspector.js';
 
 export abstract class NetworkGameObject extends GameObject {
 	/**

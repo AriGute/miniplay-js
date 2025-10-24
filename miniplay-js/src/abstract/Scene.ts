@@ -1,21 +1,24 @@
-import { config } from '../../config';
-import { GameObject } from './GameObject';
-import { Point } from '../Point';
-import { BoxCollider } from '../collider/BoxCollider';
-import { Input } from '../inputs/Input';
-import { Connection } from '../networking/Connection';
-import { HostGameUpdateType } from '../networking/ConnectionInterface';
-import { TileMap } from '../tileMap/TileMap';
-import { ParticleHandler } from '../particleSystem/ParticleHandler';
-import { drawLight as drawLight, drawShadow, operationGenerator } from '../LightEffect';
-import { UI } from '../UI';
-import { Inspector } from '../Inspector';
-import { generateId } from '../utils';
-import { NetworkGameObject } from './NetworkGameObject';
-import { Particles } from '../particleSystem/Particle';
-import { LightSource } from './LightSource';
-import { AnimationFrames } from './../animations/AnimationFrames';
-import { PathFinding } from './../tileMap/PathFinding';
+import {
+	AnimationFrames,
+	BoxCollider,
+	config,
+	Connection,
+	drawLight,
+	drawShadow,
+	GameObject,
+	generateId,
+	HostGameUpdateType,
+	Input,
+	Inspector,
+	LightSource,
+	NetworkGameObject,
+	ParticleHandler,
+	Particles,
+	PathFinding,
+	Point,
+	TileMap,
+	UI,
+} from '../../index.js';
 
 export type NextScene = (scene: Scene) => void;
 export enum SceneStates {
@@ -35,6 +38,23 @@ export interface ElementOptions {
 }
 
 export abstract class Scene {
+	private _pause: boolean = false;
+
+	public set pause(v: boolean) {
+		this._pause = v;
+		if (v) {
+			this.stopDrawing();
+			this.stopUpdating();
+		} else {
+			this.startUpdating();
+			this.startDrawing();
+		}
+	}
+
+	public get pause(): boolean {
+		return this._pause;
+	}
+
 	private _onstatechange: Function[] = [];
 	private nextFrame: number = 0;
 	public set onstatechange(func: () => void) {
@@ -119,6 +139,24 @@ export abstract class Scene {
 				y: this.canvas.getBoundingClientRect().top,
 			};
 		});
+
+		const style = this.element({ type: 'style' });
+		style.innerHTML = `
+			.prevent-select {
+				-webkit-user-select: none; 
+				-ms-user-select: none; 
+				user-select: none;
+			}
+			canvas.pixelArtStyle {
+				image-rendering: -moz-crisp-edges;
+				image-rendering: -o-crisp-edges;
+				image-rendering: -webkit-optimize-contrast;
+				-ms-interpolation-mode: nearest-neighbor;
+			}
+				`;
+
+		this.addElement(style);
+
 		this.state = SceneStates.loading;
 		this.onLoad();
 		setTimeout(() => {
@@ -292,18 +330,19 @@ export abstract class Scene {
 				this.context2d.globalCompositeOperation = 'source-over';
 				// TODO: prepareNextDraw decouple update and draw
 				this._tileMap && this._tileMap.prepareNextDraw(this.context2d);
-				// this._tileMap &&
-				// 	this.context2d.drawImage(
-				// 		this._tileMap.backGroundCanvas,
-				// 		0,
-				// 		0,
-				// 		config.graphics.targetResolution.width,
-				// 		config.graphics.targetResolution.height,
-				// 		0,
-				// 		0,
-				// 		config.graphics.targetResolution.width,
-				// 		config.graphics.targetResolution.height,
-				// 	);
+				this._tileMap &&
+					this.context2d.drawImage(
+						this._tileMap.backGroundCanvas,
+						0,
+						0,
+						config.graphics.targetResolution.width,
+						config.graphics.targetResolution.height,
+						0,
+						0,
+						config.graphics.targetResolution.width,
+						config.graphics.targetResolution.height,
+					);
+
 				// draw nonsequence gameObjects as background
 				GameObject.gameObjectNonSequence?.forEach((object) => {
 					if (object.enable) {

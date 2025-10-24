@@ -1,14 +1,14 @@
-import { Scene } from '../abstract/Scene';
-import { Frame } from '../animations/AnimationInterfaces';
-import { Point } from '../Point';
-import { Camera } from '../Camera';
-import { config } from '../../config';
-import { BoxCollider, LeanPoint, Size } from '../collider/BoxCollider';
-import { Path, PathFinding } from './PathFinding';
-import { TileSet, TileBaseType } from './TileSet';
-import { generateId, manhattanDistance } from '../utils';
-import { Connection } from '../networking/Connection';
-import { GameObject } from '../abstract/GameObject';
+import { Scene } from '../abstract/Scene.js';
+import { Frame } from '../animations/AnimationInterfaces.js';
+import { Point } from '../Point.js';
+import { Camera } from '../Camera.js';
+import { config } from '../../config.js';
+import { LeanPoint, Size } from '../collider/BoxCollider.js';
+import { Path, PathFinding } from './PathFinding.js';
+import { TileSet, TileBaseType } from './TileSet.js';
+import { generateId, manhattanDistance } from '../utils.js';
+import { Connection } from '../networking/Connection.js';
+import { GameObject } from '../abstract/GameObject.js';
 
 export interface TileMapData {
 	_startPoint: LeanPoint;
@@ -63,17 +63,21 @@ export abstract class TileMap {
 
 	private _enable: boolean = false;
 	public set enable(v: boolean) {
-		if (v === true) {
-			this._relatedObjects = this._relatedObjects.filter((object) => {
-				if (object.objectId === undefined) {
-					return false;
-				} else {
-					return true;
-				}
-			});
-			this._relatedObjects.forEach((object) => (object.enable = true));
-		} else if (v === false) {
-			this._relatedObjects.forEach((object) => (object.enable = false));
+		if (this._relatedObjects) {
+			if (v === true) {
+				this._relatedObjects = this._relatedObjects.filter((object) => {
+					if (object.objectId === undefined) {
+						return false;
+					} else {
+						return true;
+					}
+				});
+				this._relatedObjects.forEach((object) => (object.enable = true));
+			} else if (v === false) {
+				this._relatedObjects.forEach((object) => (object.enable = false));
+			}
+		} else {
+			this._relatedObjects = [];
 		}
 		this._enable = v;
 	}
@@ -180,7 +184,7 @@ export abstract class TileMap {
 				const { img, frameCut } = this.getTile(x, y) || { img: null, frameCut: null };
 				if (img) {
 					const position = new Point(x * frameCut.width, y * frameCut.height, true);
-					context2d.drawImage(
+					this.backGroundContext2d.drawImage(
 						img,
 						frameCut.sourceX,
 						frameCut.sourceY,
@@ -499,7 +503,7 @@ export abstract class TileMap {
 		if (!this.isTileOnMap(normalizedPosition)) return true;
 		if (this._tileMap[normalizedPosition.y]) {
 			const tile: TileBaseType = this._tileMap[normalizedPosition.y][normalizedPosition.x];
-			if ((customTileFilter && !customTileFilter.includes(tile)) || this.walkableTiles.includes(tile)) {
+			if (this.walkableTiles.includes(tile) || (customTileFilter && !customTileFilter.includes(tile))) {
 				return false;
 			} else {
 				return true;
@@ -510,13 +514,14 @@ export abstract class TileMap {
 	}
 
 	private *spawnPointGenerator() {
-		const spawnRadius = config.graphics.tileMap.tileSize / 2;
-		while (true) {
-			yield new Point(this.startPoint.x - spawnRadius, this.startPoint.y + spawnRadius);
-			yield new Point(this.startPoint.x + spawnRadius, this.startPoint.y + spawnRadius);
-			yield new Point(this.startPoint.x + spawnRadius, this.startPoint.y - spawnRadius);
-			yield new Point(this.startPoint.x - spawnRadius, this.startPoint.y - spawnRadius);
-		}
+		yield this.startPoint;
+		// const spawnRadius = config.graphics.tileMap.tileSize / 2;
+		// while (true) {
+		// 	yield new Point(this.startPoint.x - spawnRadius, this.startPoint.y + spawnRadius);
+		// 	yield new Point(this.startPoint.x + spawnRadius, this.startPoint.y + spawnRadius);
+		// 	yield new Point(this.startPoint.x + spawnRadius, this.startPoint.y - spawnRadius);
+		// 	yield new Point(this.startPoint.x - spawnRadius, this.startPoint.y - spawnRadius);
+		// }
 	}
 
 	public findPath(startPosition: Point | LeanPoint, targetPosition: Point | LeanPoint): Path {

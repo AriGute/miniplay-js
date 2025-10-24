@@ -2,20 +2,16 @@
 	"compilerOptions": {
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
-		"target": "esnext",
-		"module": "commonjs",
+		"target": "es2023",
+		"module": "node20",
+		"moduleResolution": "nodenext",
 		"allowJs": true,
 		"noImplicitAny": false,
-		"sourceMap": true,
 		"outDir": "../package/lib",
 		"declaration": true,
 		"declarationMap": true,
-		"removeComments": true,
-		"baseUrl": ".",
-		"paths": {
-			"*": ["node_modules/*"]
-		}
+		"removeComments": true
 	},
-	"exclude": ["../dist"],
+	"exclude": ["./dist", "copyPackageFiles.cjs"],
 	"include": ["./**/*.ts", "./**/*.d.ts"]
 }

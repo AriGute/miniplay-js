@@ -1,5 +1,5 @@
-import { NetworkEventType, HostGameUpdateType, ClientGameUpdateType, ClientNetworkEvent } from './ConnectionInterface';
-import { Connection } from './Connection';
+import { NetworkEventType, HostGameUpdateType, ClientGameUpdateType, ClientNetworkEvent } from './ConnectionInterface.js';
+import { Connection } from './Connection.js';
 
 export enum RemoteEvent {
 	action = 'action',

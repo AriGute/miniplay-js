@@ -1,4 +1,4 @@
-import { AnimationFrames } from './AnimationFrames';
+import { AnimationFrames } from './AnimationFrames.js';
 
 export interface FrameRelativePosition {
 	sourceX: number;

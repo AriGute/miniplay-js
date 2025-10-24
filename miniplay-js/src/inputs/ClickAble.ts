@@ -1,6 +1,6 @@
-import { Frame } from '../animations/AnimationInterfaces';
-import { GameObject } from '../abstract/GameObject';
-import { config } from '../../config';
+import { Frame } from '../animations/AnimationInterfaces.js';
+import { GameObject } from '../abstract/GameObject.js';
+import { config } from '../../config.js';
 
 /**
  *  motivation: clickAble is a connection between two data structures (option class and the dialog class) on mouse interaction.

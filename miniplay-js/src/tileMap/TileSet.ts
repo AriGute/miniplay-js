@@ -1,4 +1,4 @@
-import { AnimationFrames } from '../animations/AnimationFrames';
+import { AnimationFrames } from '../animations/AnimationFrames.js';
 
 export const enum TileBaseType {
 	default = -1,

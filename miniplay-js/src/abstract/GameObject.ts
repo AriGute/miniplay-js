@@ -1,14 +1,14 @@
-import { generateId } from '../utils';
-import { Point } from '../Point';
-import { Scene } from './Scene';
-import { BoxCollider, LeanPoint } from '../collider/BoxCollider';
-import { RemoteController } from '../networking/RemoteController';
-import { Connection } from '../networking/Connection';
-import { Frame } from '../animations/AnimationInterfaces';
-import { config } from '../../config';
-import { Path } from '../tileMap/PathFinding';
-import { Particles } from '../particleSystem/Particle';
-import { Inspector } from '../Inspector';
+import { generateId } from '../utils.js';
+import { Point } from '../Point.js';
+import { Scene } from './Scene.js';
+import { BoxCollider, LeanPoint } from '../collider/BoxCollider.js';
+import { RemoteController } from '../networking/RemoteController.js';
+import { Connection } from '../networking/Connection.js';
+import { Frame } from '../animations/AnimationInterfaces.js';
+import { config } from '../../config.js';
+import { Path } from '../tileMap/PathFinding.js';
+import { Particles } from '../particleSystem/Particle.js';
+import { Inspector } from '../Inspector.js';
 
 export interface DataToSend {
 	// require

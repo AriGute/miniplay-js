@@ -1,4 +1,4 @@
-import { Scene } from './abstract/Scene';
+import { Scene } from './abstract/Scene.js';
 
 export class SceneHandler {
 	private doc: Document;

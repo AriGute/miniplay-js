@@ -5,9 +5,9 @@
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "main": "main.js",
+  "main": "main.ts",
   "scripts": {
-    "test": "node main.js",
+    "test": "tsc",
     "install-package": "npm install ../miniplay-js/dist/build-test/miniplay-js-0.1.0.tgz"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
-import { config } from '../config';
-import { LeanPoint } from './collider/BoxCollider';
-import { Point } from './Point';
+import { config } from '../config.js';
+import { LeanPoint } from './collider/BoxCollider.js';
+import { Point } from './Point.js';
 const uniqueId = new Set();
 
 export function logger(msg: string, color1?: string, color2?: string) {

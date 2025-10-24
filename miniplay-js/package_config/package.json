@@ -19,10 +19,14 @@
   ],
   "license": "Apache-2.0",
   "author": "Ariel Gueta",
-  "type": "commonjs",
-  "types": "lib/index.d.ts",
+  "type": "module",
   "files": [
     "/lib"
   ],
-  "main": "index.js"
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js"
+  }
 }
