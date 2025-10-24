@@ -22,14 +22,12 @@ Here’s a minimal example demonstrating how to set up and run a simple game usi
 ```typescript
 // Game.ts
 import { Scene, LeanPoint, config } from 'miniplay-js';
-import { Map } from './Map';
 
 export class Game extends Scene {
 	onLoad(): void {
 		this.setGameConfig();
 		const canvas = this.createGameCanvas();
 		this.addElement(canvas);
-		this.setTileMap(new Map(this, 20, 13));
 	}
 
 	onStart(): void {
@@ -40,27 +38,11 @@ export class Game extends Scene {
 		// Handle network disconnects or session loss
 	}
 
-	public getCanvas() {
-		return this.canvas;
-	}
-
-	public setPos(point: LeanPoint) {
-		this.canvas.style.left = `${point.x}px`;
-		this.canvas.style.top = `${point.y}px`;
-	}
-
 	private setGameConfig() {
 		config.graphics.targetResolution.height = 320;
 		config.graphics.targetResolution.width = 192;
 		config.graphics.scaledResolution.height = 400;
 		config.graphics.scaledResolution.width = 300;
-	}
-
-	public debugCollider(value: boolean) {
-		config.debugMode.drawCollider = value;
-	}
-	public debugInspector(value: boolean) {
-		config.debugMode.Inspector = value;
 	}
 
 	constructor() {
@@ -81,7 +63,6 @@ demoGame.start();
 my-game/
 ├── src/
 │   ├── Game.ts
-│   ├── Map.ts
 │   └── index.ts
 ├── package.json
 └── tsconfig.json
