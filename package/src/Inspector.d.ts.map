@@ -1,0 +1,1 @@
+{"version":3,"file":"Inspector.d.ts","sourceRoot":"","sources":["../../miniplay-js/src/Inspector.ts"],"names":[],"mappings":"AAAA,qBAAa,SAAS;IACrB,OAAO,CAAC,MAAM,CAAC,UAAU,CAAkD;WAE7D,OAAO,CAAC,IAAI,KAAA,EAAE,IAAI,KAAA,EAAE,KAAK,CAAC,KAAA;WAI1B,IAAI,CAAC,SAAS,EAAE,wBAAwB;CAMtD"}

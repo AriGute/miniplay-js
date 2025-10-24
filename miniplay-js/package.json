@@ -11,7 +11,7 @@
     "build": "tsc --outDir ./dist/build-test/lib",
     "copy-package-files-test": "node ./copyPackageFiles.cjs test",
     "build-test": "node ./copyPackageFiles.cjs test && tsc --outDir ./dist/build-test/lib && cd ./dist/build-test && npm pack",
-    "build-publish": "node ./copyPackageFiles.cjs publish && tsc --outDir ../package && cd ./dist/build-test",
+    "build-publish": "node ./copyPackageFiles.cjs prod && tsc --outDir ../package && cd ./dist/build-test",
     "publish": "cd ../package npm publish"
   },
   "devDependencies": {

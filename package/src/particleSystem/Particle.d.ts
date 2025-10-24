@@ -1,0 +1,55 @@
+import { Point } from '../Point.js';
+interface ParticleOptions {
+    position: Point;
+    timer?: number;
+    delay?: number;
+    maxCount?: number;
+    randomRangeX?: number;
+    randomRangeY?: number;
+    randomRangeScale?: number;
+    scaleWidth?: number;
+    scaleHeight?: number;
+    timeToLive?: number;
+    forceX?: number;
+    forceY?: number;
+    preCycle?: boolean;
+}
+export declare class Particles {
+    protected static particlesMap: Map<string, Particles>;
+    private id;
+    private _enable;
+    set enable(v: boolean);
+    private pieces;
+    private particle;
+    private count;
+    private frameDeltaTime;
+    private forceX;
+    private forceY;
+    private _isAlive;
+    get isAlive(): boolean;
+    timer: number;
+    delay: number;
+    position: Point;
+    maxCount: number;
+    randomRangeX: number;
+    randomRangeY: number;
+    randomRangeScale: number;
+    timeToLive: number;
+    scaleWidth?: number;
+    scaleHeight?: number;
+    preCycle?: boolean;
+    constructor(img: string, width: number, height: number, options?: ParticleOptions);
+    private invokePreCycle;
+    drawParticles(context2d: CanvasRenderingContext2D): void;
+    private beforeDrawUpdate;
+    private drawPieces;
+    private draw;
+    private getPieceFrame;
+    private createPiece;
+    clear(): void;
+    remove(): void;
+    protected static isAlive(particle: Particles): boolean;
+    static clear(): void;
+}
+export {};
+//# sourceMappingURL=Particle.d.ts.map

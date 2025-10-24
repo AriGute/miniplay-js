@@ -9,16 +9,17 @@ console.log('Arguments provided:', args);
 
 const files = ['.npmignore', 'LICENSE.txt', 'package.json', 'README.txt'];
 const srcDir = path.join(__dirname, 'package_config');
-let rootDest = __dirname;
+let rootDest = '';
 switch (env) {
 	case 'test':
-		rootDest = path.join('dist', 'build-test');
+		rootDest = path.join(__dirname, 'dist', 'build-test');
 		break;
 	case 'prod':
-		rootDest = path.join('..', 'package');
+		rootDest = path.join(__dirname, '..', 'package');
 		break;
 
 	default:
+		throw Error('Use env "test" or "prod"');
 		break;
 }
 const destDir = path.join(rootDest);
