@@ -3,7 +3,7 @@ const path = require('path');
 console.log('copy files...');
 
 const args = process.argv.slice(2); // Exclude the first two elements
-const env = args[0] === 'test' ? 'test' : args[0] === 'prod' ? 'prod' : null;
+const env = args[0] === 'test' ? 'test' : args[0] === 'publish' ? 'publish' : null;
 
 console.log('Arguments provided:', args);
 
@@ -14,12 +14,12 @@ switch (env) {
 	case 'test':
 		rootDest = path.join(__dirname, 'dist', 'build-test');
 		break;
-	case 'prod':
+	case 'publish':
 		rootDest = path.join(__dirname, '..', 'package');
 		break;
 
 	default:
-		throw Error('Use env "test" or "prod"');
+		throw Error('Use env "test" or "publish"');
 		break;
 }
 const destDir = path.join(rootDest);
