@@ -6,16 +6,20 @@ Simplifies rendering, input handling, and game loops so you can focus on buildin
 ---
 
 ## Features
-- Easy game loop management  
-- Scene-based architecture  
-- Built-in tools for rendering, input, and debugging  
-- Configurable resolution and scaling  
-- TypeScript-first design with strong typings  
+
+- Easy game loop management
+- Scene-based architecture
+- Built-in tools for rendering, input, and debugging
+- Configurable resolution and scaling
+- TypeScript-first design with strong typings
 
 ---
 
 ## Quick Start
+
 Here’s a minimal example demonstrating how to set up and run a simple game using miniplay-js.
+
+```typescript
 // Game.ts
 import { Scene, LeanPoint, config } from 'miniplay-js';
 import { Map } from './Map';
@@ -63,12 +67,17 @@ export class Game extends Scene {
 		super();
 	}
 }
+```
 
+```typescript
 // index.ts
 const demoGame = new Game();
 demoGame.start();
+```
 
 ### Folder Structure Example
+
+```
 my-game/
 ├── src/
 │   ├── Game.ts
@@ -76,6 +85,8 @@ my-game/
 │   └── index.ts
 ├── package.json
 └── tsconfig.json
+```
 
 ## License
+
 This project is open-source under the Apache-2.0 License.
