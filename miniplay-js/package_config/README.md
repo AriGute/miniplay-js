@@ -21,7 +21,7 @@ Here’s a minimal example demonstrating how to set up and run a simple game usi
 
 ```typescript
 // Game.ts
-import { Scene, LeanPoint, config } from 'miniplay-js';
+import { Scene, config } from 'miniplay-js';
 
 export class Game extends Scene {
 	onLoad(): void {
