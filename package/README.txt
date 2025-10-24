@@ -1,19 +1,81 @@
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+# miniplay-js
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+**A lightweight TypeScript library for creating an HTML5 `<canvas>` with a built-in toolbox for developing games, interactive visuals, and dynamic web experiences.**  
+Simplifies rendering, input handling, and game loops so you can focus on building.
 
-   Copyright [2025] Ariel Gueta
+---
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+## Features
+- Easy game loop management  
+- Scene-based architecture  
+- Built-in tools for rendering, input, and debugging  
+- Configurable resolution and scaling  
+- TypeScript-first design with strong typings  
 
-       http://www.apache.org/licenses/LICENSE-2.0
+---
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+## Quick Start
+Here’s a minimal example demonstrating how to set up and run a simple game using miniplay-js.
+// Game.ts
+import { Scene, LeanPoint, config } from 'miniplay-js';
+import { Map } from './Map';
+
+export class Game extends Scene {
+	onLoad(): void {
+		this.setGameConfig();
+		const canvas = this.createGameCanvas();
+		this.addElement(canvas);
+		this.setTileMap(new Map(this, 20, 13));
+	}
+
+	onStart(): void {
+		// Called when the game starts
+	}
+
+	onConnectionLost(): void {
+		// Handle network disconnects or session loss
+	}
+
+	public getCanvas() {
+		return this.canvas;
+	}
+
+	public setPos(point: LeanPoint) {
+		this.canvas.style.left = `${point.x}px`;
+		this.canvas.style.top = `${point.y}px`;
+	}
+
+	private setGameConfig() {
+		config.graphics.targetResolution.height = 320;
+		config.graphics.targetResolution.width = 192;
+		config.graphics.scaledResolution.height = 400;
+		config.graphics.scaledResolution.width = 300;
+	}
+
+	public debugCollider(value: boolean) {
+		config.debugMode.drawCollider = value;
+	}
+	public debugInspector(value: boolean) {
+		config.debugMode.Inspector = value;
+	}
+
+	constructor() {
+		super();
+	}
+}
+
+// index.ts
+const demoGame = new Game();
+demoGame.start();
+
+### Folder Structure Example
+my-game/
+├── src/
+│   ├── Game.ts
+│   ├── Map.ts
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+
+## License
+This project is open-source under the Apache-2.0 License.
