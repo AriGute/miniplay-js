@@ -9,7 +9,18 @@ console.log('Arguments provided:', args);
 
 const files = ['.npmignore', 'LICENSE.txt', 'package.json', 'README.txt'];
 const srcDir = path.join(__dirname, 'package_config');
-const rootDest = path.join(__dirname, 'dist', env === 'test' && 'build-test');
+let rootDest = __dirname;
+switch (env) {
+	case 'test':
+		rootDest = path.join('dist', 'build-test');
+		break;
+	case 'prod':
+		rootDest = path.join('..', 'package');
+		break;
+
+	default:
+		break;
+}
 const destDir = path.join(rootDest);
 
 // remove existing files
