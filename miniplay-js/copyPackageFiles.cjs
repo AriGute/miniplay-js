@@ -3,7 +3,7 @@ const path = require('path');
 console.log('copy files...');
 
 const args = process.argv.slice(2); // Exclude the first two elements
-const env = args[0] === 'test' ? 'test' : args[0] === 'publish' ? 'publish' : null;
+const env = args[0] === 'dev' ? 'dev' : args[0] === 'publish' ? 'publish' : null;
 
 console.log('Arguments provided:', args);
 
@@ -11,15 +11,15 @@ const files = ['.npmignore', 'LICENSE.txt', 'package.json', 'README.md'];
 const srcDir = path.join(__dirname, 'package_config');
 let rootDest = '';
 switch (env) {
-	case 'test':
-		rootDest = path.join(__dirname, 'dist', 'build-test');
+	case 'dev':
+		rootDest = path.join(__dirname, 'dist', 'build-dev');
 		break;
 	case 'publish':
 		rootDest = path.join(__dirname, '..', 'package');
 		break;
 
 	default:
-		throw new Error('Use env "test" or "publish"');
+		throw new Error('Use env "dev" or "publish"');
 		break;
 }
 const destDir = path.join(rootDest);
