@@ -59,8 +59,7 @@ import { GameObject, Scene, Point, BoxCollider, Frame } from 'miniplay-js';
 
 class HelloBox extends GameObject {
   constructor(scene: Scene, position: Point) {
-    super(position);
-    this.setScene(scene);
+    super(scene, position);
     this.addCollider(new BoxCollider(this, 16, 16, new Point(-8, -8, true)));
   }
 

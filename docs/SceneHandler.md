@@ -29,6 +29,8 @@ Under the hood it:
 
 ### Hello world example
 
+This example shows a `SceneHandler` that starts in a main menu scene and can switch to a game scene and back.
+
 ```ts
 import { Scene, SceneHandler, Point } from 'miniplay-js';
 

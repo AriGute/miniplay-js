@@ -122,6 +122,8 @@ constructor(
 
 ### Hello world example (simple forest encounter)
 
+This example creates a basic forest tile map filled with ground tiles and exposes a central spawn point for players.
+
 ```ts
 import {
   Scene,

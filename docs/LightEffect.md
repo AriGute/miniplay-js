@@ -20,7 +20,7 @@ You usually do not call them manually; the `Scene` integrates them into the main
 
 ### Hello world example
 
-Normally you do not modify the scene loop, but this is roughly how lighting is used internally:
+This example illustrates how the engine’s scene loop uses `drawLight` and `drawShadow` to apply lighting and shadows after drawing the world.
 
 ```ts
 import {

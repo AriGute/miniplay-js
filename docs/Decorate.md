@@ -34,6 +34,8 @@ You still inherit all the methods from `GameObject` (colliders, tags, `update`, 
 
 ### Hello world example (barrel decoration)
 
+This example creates a simple `Barrel` decoration that idles in place and can be tagged as interactable.
+
 ```ts
 import {
   Scene,

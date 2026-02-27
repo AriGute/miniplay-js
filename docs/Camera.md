@@ -28,6 +28,8 @@ It tracks a position and follows a target `GameObject`, and the `TileMap` uses i
 
 ### Hello world example
 
+This example creates a player `GameObject` and makes the camera follow it as it moves.
+
 ```ts
 import {
   Scene,
@@ -40,8 +42,7 @@ import {
 
 class Player extends GameObject {
   constructor(scene: Scene, position: Point) {
-    super(position);
-    this.setScene(scene);
+    super(scene, position);
     this.addCollider(new BoxCollider(this, 16, 24, new Point(-8, -12, true)));
   }
 

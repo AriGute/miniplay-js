@@ -61,6 +61,8 @@ constructor(
 
 ### Hello world example (torch)
 
+This example creates a flickering `Torch` decoration that emits warm light and an idle flame animation.
+
 ```ts
 import {
   Scene,

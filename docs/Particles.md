@@ -88,6 +88,8 @@ Key options:
 
 ### Hello world example (smoke effect)
 
+This example creates a `Campfire` game object that spawns a looping smoke particle effect rising above it.
+
 ```ts
 import {
   Scene,
@@ -102,8 +104,7 @@ class Campfire extends GameObject {
   private smoke: Particles;
 
   constructor(scene: Scene, position: Point) {
-    super(position);
-    this.setScene(scene);
+    super(scene, position);
 
     this.smoke = new Particles(
       '/assets/particles/smoke32x32.png',

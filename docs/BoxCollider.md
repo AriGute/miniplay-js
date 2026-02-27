@@ -96,6 +96,8 @@ constructor(
 
 ### Hello world example
 
+This example creates a static gray wall block and a blue player block that moves to the right until it collides with the wall.
+
 ```ts
 import {
   Scene,
@@ -107,8 +109,7 @@ import {
 
 class SolidBlock extends GameObject {
   constructor(scene: Scene, position: Point) {
-    super(position);
-    this.setScene(scene);
+    super(scene, position);
     this.addTag('wall');
     this.addCollider(new BoxCollider(this, 32, 32, new Point(-16, -16, true)));
   }
@@ -124,8 +125,7 @@ class SolidBlock extends GameObject {
 
 class PlayerWithCollision extends GameObject {
   constructor(scene: Scene, position: Point) {
-    super(position);
-    this.setScene(scene);
+    super(scene, position);
     this.addCollider(new BoxCollider(this, 16, 16, new Point(-8, -8, true)));
   }
 

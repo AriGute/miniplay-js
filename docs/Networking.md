@@ -171,6 +171,8 @@ It is used internally by `Connection` as an alternative transport to WebSocket.
 
 ## Hello world snippet (host + client)
 
+This example shows how to start a host or client, request a remote controller, and subscribe to basic create events from the host.
+
 ```ts
 import {
   Connection,

@@ -10,7 +10,8 @@
 		"outDir": "../package/lib",
 		"declaration": true,
 		"declarationMap": true,
-		"removeComments": true
+		"removeComments": true,
+		"strictNullChecks": false
 	},
 	"exclude": ["./dist", "copyPackageFiles.cjs"],
 	"include": ["./src/*.ts", "./sec/*.d.ts"]

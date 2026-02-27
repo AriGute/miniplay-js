@@ -56,6 +56,8 @@ constructor(owner: GameObject, options?: AnimationOptions)
 
 ### Hello world example
 
+This example creates a character that can switch between `idle` and `walk` animations based on a `walking` flag.
+
 ```ts
 import {
   Scene,
@@ -72,8 +74,7 @@ class SimpleCharacter extends GameObject {
   private walking = false;
 
   constructor(scene: Scene, position: Point) {
-    super(position);
-    this.setScene(scene);
+    super(scene, position);
 
     const options: AnimationOptions = {
       frameOffSet: { x: 0, y: 0 },

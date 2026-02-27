@@ -11,13 +11,19 @@ See also: [`Scene`](./Scene.md), [`NetworkGameObject`](./NetworkGameObject.md), 
 ### Constructor
 
 ```ts
-constructor(point?: Point, remoteController?: RemoteController | null, gameObjectId?: string)
+constructor(
+  scene: Scene,
+  point?: Point,
+  remoteController?: RemoteController | null,
+  gameObjectId?: string,
+)
 ```
 
 - **input**
-  - `point`: initial world position (defaults to `(0, 0)`).
-  - `remoteController`: optional controller for networked input (usually `null` for plain `GameObject`s).
-  - `gameObjectId`: optional custom id (otherwise a random id is generated).
+- `scene`: the owning `Scene`.
+- `point`: initial world position (defaults to `(0, 0)`).
+- `remoteController`: optional controller for networked input (usually `null` for plain `GameObject`s).
+- `gameObjectId`: optional custom id (otherwise a random id is generated).
 - **output**
   - Creates a new `GameObject` with a unique id and registers it in the internal drawing sets.
 
@@ -42,10 +48,6 @@ constructor(point?: Point, remoteController?: RemoteController | null, gameObjec
     - **output**: `void`.
 
 - **Scene and position**
-  - `public setScene(scene: Scene): void`  
-    - **description**: Attaches the game object to a specific scene.  
-    - **input**: `scene`.  
-    - **output**: `void`.
   - `public get position(): Point`  
     - **description**: Current world position of the object (with camera unscaled coordinates).  
     - **input**: none.  
@@ -141,6 +143,8 @@ constructor(point?: Point, remoteController?: RemoteController | null, gameObjec
 
 ### Hello world example
 
+This example creates a simple yellow square `GameObject` and adds it to a scene so it appears at a fixed position on the screen.
+
 ```ts
 import {
   Scene,
@@ -152,8 +156,7 @@ import {
 
 class HelloWorldObject extends GameObject {
   constructor(scene: Scene, position: Point = new Point(100, 100)) {
-    super(position);
-    this.setScene(scene);
+    super(scene, position);
     this.addTag('hello');
     this.addCollider(new BoxCollider(this, 16, 16, new Point(-8, -8, true)));
   }

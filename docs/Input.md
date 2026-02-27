@@ -59,6 +59,8 @@ Most consumers never call the constructor directly; you use the static methods b
 
 ### Hello world example
 
+This example creates a cyan square `GameObject` that moves in response to WASD keys and logs the position of a single left mouse click.
+
 ```ts
 import {
   Scene,
@@ -71,8 +73,7 @@ import {
 
 class PlayerController extends GameObject {
   constructor(scene: Scene, position: Point) {
-    super(position);
-    this.setScene(scene);
+    super(scene, position);
 
     // register movement keys
     Input.addInputListener('w');

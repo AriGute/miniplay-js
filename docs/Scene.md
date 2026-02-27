@@ -132,6 +132,8 @@ abstract onConnectionLost(): void;
 
 ### Hello world example
 
+This example defines a minimal scene that creates a white square `GameObject` and starts it using `SceneHandler`.
+
 ```ts
 import {
   Scene,
@@ -144,8 +146,7 @@ import {
 
 class SimpleObject extends GameObject {
   constructor(scene: Scene, position: Point = new Point(100, 100)) {
-    super(position);
-    this.setScene(scene);
+    super(scene, position);
     this.addCollider(new BoxCollider(this, 16, 16, new Point(-8, -8, true)));
   }
 

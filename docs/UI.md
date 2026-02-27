@@ -78,6 +78,8 @@ The `Scene` draws `UI.canvas` on top of the main game canvas every frame.
 
 ### Hello world example (simple HUD)
 
+This example draws a simple “HP: 100” label in the top‑left corner of the screen using the UI overlay.
+
 ```ts
 import { Scene, UI, Point } from 'miniplay-js';
 

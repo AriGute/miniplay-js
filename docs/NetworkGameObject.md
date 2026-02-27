@@ -58,6 +58,8 @@ so usually you only override `addAnimations` and your own `update` logic.
 
 ### Hello world example
 
+This example creates a simple networked player that moves toward a fixed point when controlled locally and syncs its animation and position across the network.
+
 ```ts
 import {
   Scene,

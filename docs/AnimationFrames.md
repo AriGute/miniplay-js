@@ -66,6 +66,8 @@ constructor(
 
 ### Hello world example
 
+This example creates a `GameObject` that uses `AnimationFrames` to draw a looping walking animation at a fixed position.
+
 ```ts
 import {
   AnimationFrames,
@@ -79,8 +81,7 @@ class AnimatedSprite extends GameObject {
   private walk: AnimationFrames;
 
   constructor(scene: Scene, position: Point) {
-    super(position);
-    this.setScene(scene);
+    super(scene, position);
 
     this.walk = new AnimationFrames(
       'walk',
