@@ -21,6 +21,10 @@ Simplifies rendering, input handling, and game loops so you can focus on buildin
 npm i miniplay-js
 ```
 
+## Documentation
+
+For detailed API references and advanced usage, check out the full **[`documentation`](./docs/index.md)**
+
 ## Quick Start
 
 Here’s a minimal example demonstrating how to set up and run a simple game using miniplay-js.
