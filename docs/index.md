@@ -114,6 +114,12 @@ class MyFirstScene extends Scene {
   - [`UI`](./UI.md)
   - [`LightEffect`](./LightEffect.md)
   - [`Particles`](./Particles.md)
+- **Architecture & practices**
+  - [Architecture & Practices](./practices/README.md) — overview and quick reference
+  - [Architecture](./practices/architecture.md) — client-server model, Connection, RemoteController, message protocol
+  - [Core](./practices/core.md) — Scene, GameObject, NetworkGameObject, config
+  - [UI](./practices/ui.md) — UI system, Input/ClickAble, building screens
+  - [Best practices](./practices/best-practices.md) — checklist and do's/don'ts
 
 For networking and multiplayer, see [`Networking`](./Networking.md).
 
