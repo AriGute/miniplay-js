@@ -22,6 +22,30 @@ Scene lifecycle, GameObject hierarchy, and config.
 
 ---
 
+## Scene Ownership and Transition Contract
+
+1. **Scene independence**
+   - A `Scene` is self-contained and owns only its own lifecycle/state (`onLoad`, `onStart`, `clear`).
+   - A scene should not manually orchestrate multiple live scenes.
+
+2. **SceneHandler is the transition authority**
+   - Only `SceneHandler.next(nextScene)` is responsible for switching scenes.
+   - Transition sequence is centralized: clear current scene -> start next scene with injected `nextScene` callback.
+
+3. **How scenes request transitions**
+   - Scene code should call `this.nextScene(next)` (the callback provided by `SceneHandler`).
+   - Do not start another scene directly from scene code with `new OtherScene().start()`.
+
+4. **Single-active-scene invariant**
+   - Runtime should have one active scene managed by `SceneHandler`.
+   - Without `SceneHandler` wiring, only the scene manually started with `start()` is running; no managed transition chain exists.
+
+5. **Agent implementation guidance**
+   - Prefer `this.nextScene(...)` inside scene classes.
+   - Avoid parallel scene execution unless explicitly implementing engine internals.
+
+---
+
 ## GameObject Pattern
 
 **Abstract base**
