@@ -27,6 +27,28 @@ constructor(
 - **output**
   - Creates a decoration, stores color and radius, and adds it to `LightSource.sources`.
 
+### Required implementations
+
+When you create `class MyLight extends LightSource`, you **must implement**:
+
+- `protected addAnimations(): void` (inherited abstract requirement from `Decorate`)
+- `public update(): void` (inherited abstract requirement from `GameObject`)
+- `protected nextDraw(context2d: CanvasRenderingContext2D): Frame` (inherited abstract requirement from `GameObject`)
+
+Minimal subclass skeleton:
+
+```ts
+class MyLight extends LightSource {
+  protected addAnimations(): void {}
+
+  public update(): void {}
+
+  protected nextDraw(context2d: CanvasRenderingContext2D): Frame {
+    return null;
+  }
+}
+```
+
 ### Methods
 
 - `public static sources: Map<string, LightSource>`  
@@ -103,7 +125,8 @@ class Torch extends LightSource {
     this.updateFrameClock();
   }
 
-  protected nextDraw(): Frame {
+  protected nextDraw(context2d: CanvasRenderingContext2D): Frame {
+    void context2d;
     return this.animationStateMachine.getAndUpdateAnimationFrames().getNextFrame();
   }
 }

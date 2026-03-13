@@ -27,6 +27,28 @@ constructor(
 - **output**
   - Creates a network‑ready game object, tags it as `'character'`, sets up animations and subscribes to network events.
 
+### Required implementations
+
+When you create `class MyNetworkObject extends NetworkGameObject`, you **must implement**:
+
+- `protected addAnimations(): void` (declared in `NetworkGameObject`)
+- `public update(): void` (inherited abstract requirement from `GameObject`)
+- `protected nextDraw(context2d: CanvasRenderingContext2D): Frame` (inherited abstract requirement from `GameObject`)
+
+Minimal subclass skeleton:
+
+```ts
+class MyNetworkObject extends NetworkGameObject {
+  protected addAnimations(): void {}
+
+  public update(): void {}
+
+  protected nextDraw(context2d: CanvasRenderingContext2D): Frame {
+    return null;
+  }
+}
+```
+
 ### Methods
 
 - **Movement**

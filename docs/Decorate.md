@@ -18,6 +18,28 @@ constructor(scene: Scene, position: Point)
 - **output**
   - Registers the object as a `GameObject`, tags it as `'decorate'`, and immediately calls `addAnimations`.
 
+### Required implementations
+
+When you create `class MyDecorate extends Decorate`, you **must implement**:
+
+- `protected addAnimations(): void` (declared in `Decorate`)
+- `public update(): void` (inherited abstract requirement from `GameObject`)
+- `protected nextDraw(context2d: CanvasRenderingContext2D): Frame` (inherited abstract requirement from `GameObject`)
+
+Minimal subclass skeleton:
+
+```ts
+class MyDecorate extends Decorate {
+  protected addAnimations(): void {}
+
+  public update(): void {}
+
+  protected nextDraw(context2d: CanvasRenderingContext2D): Frame {
+    return null;
+  }
+}
+```
+
 ### Methods
 
 - `protected animationStateMachine: AnimationStateMachine`  
@@ -69,7 +91,8 @@ class Barrel extends Decorate {
     // decorations often just stay in place
   }
 
-  protected nextDraw(): Frame {
+  protected nextDraw(context2d: CanvasRenderingContext2D): Frame {
+    void context2d;
     return this.animationStateMachine.getAndUpdateAnimationFrames().getNextFrame();
   }
 }

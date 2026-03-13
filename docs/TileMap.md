@@ -29,6 +29,27 @@ constructor(
 - **output**
   - Creates tile storage, offscreen canvas and spawn point generator. When `initiateData` is provided, reuses the saved tiles and rooms.
 
+### Required implementations
+
+When you create `class MyTileMap extends TileMap`, you **must implement** these abstract members:
+
+- `protected _relatedObjects: GameObject[]`
+- `protected walkableTiles: TileBaseType[]`
+- `protected tileSet: TileSet`
+- `protected loadTileSet(): void`
+
+Minimal subclass skeleton:
+
+```ts
+class MyTileMap extends TileMap {
+  protected _relatedObjects: GameObject[] = [];
+  protected walkableTiles: TileBaseType[] = [];
+  protected tileSet: TileSet;
+
+  protected loadTileSet(): void {}
+}
+```
+
 ### Core properties
 
 - `public get objectId(): string`  

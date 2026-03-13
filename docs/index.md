@@ -8,6 +8,19 @@ The library is designed around a few core ideas:
 - **GameObject**: anything that can update and draw.
 - **Systems**: focused helpers for animations, collisions, tile maps, UI, particles, lights and networking.
 
+### Abstract class contract map
+
+When extending these classes, implement every required abstract member:
+
+| Abstract class | Required implementations |
+|---|---|
+| [`Scene`](./Scene.md) | `onLoad()`, `onStart()`, `onConnectionLost()` |
+| [`GameObject`](./GameObject.md) | `update()`, `nextDraw(context2d)` |
+| [`NetworkGameObject`](./NetworkGameObject.md) | `addAnimations()`, `update()`, `nextDraw(context2d)` |
+| [`Decorate`](./Decorate.md) | `addAnimations()`, `update()`, `nextDraw(context2d)` |
+| [`LightSource`](./LightSource.md) | `addAnimations()`, `update()`, `nextDraw(context2d)` |
+| [`TileMap`](./TileMap.md) | `_relatedObjects`, `walkableTiles`, `tileSet`, `loadTileSet()` |
+
 All public entry points are exported from the main package:
 
 ```ts

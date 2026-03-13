@@ -12,6 +12,24 @@ See also: [`SceneHandler`](./SceneHandler.md), [`GameObject`](./GameObject.md), 
 
 `Scene` is abstract and has no public constructor parameters; it is created by `new MyScene()` where `MyScene extends Scene`.
 
+### Required implementations
+
+When you create `class MyScene extends Scene`, you **must implement**:
+
+- `onLoad(): void`
+- `onStart(): void`
+- `onConnectionLost(): void`
+
+Minimal subclass skeleton:
+
+```ts
+class MyScene extends Scene {
+  onLoad(): void {}
+  onStart(): void {}
+  onConnectionLost(): void {}
+}
+```
+
 ### Required lifecycle methods
 
 ```ts

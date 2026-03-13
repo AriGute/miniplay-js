@@ -27,6 +27,25 @@ constructor(
 - **output**
   - Creates a new `GameObject` with a unique id and registers it in the internal drawing sets.
 
+### Required implementations
+
+When you create `class MyObject extends GameObject`, you **must implement**:
+
+- `public update(): void`
+- `protected nextDraw(context2d: CanvasRenderingContext2D): Frame`
+
+Minimal subclass skeleton:
+
+```ts
+class MyObject extends GameObject {
+  public update(): void {}
+
+  protected nextDraw(context2d: CanvasRenderingContext2D): Frame {
+    return null;
+  }
+}
+```
+
 ### Methods
 
 - **Lifecycle**

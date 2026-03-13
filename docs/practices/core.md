@@ -4,6 +4,23 @@ Scene lifecycle, GameObject hierarchy, and config.
 
 ---
 
+## Abstract Class Contract Map
+
+Use this as a quick checklist before writing subclasses:
+
+| Abstract class | Required implementations |
+|---|---|
+| [`Scene`](../Scene.md) | `onLoad()`, `onStart()`, `onConnectionLost()` |
+| [`GameObject`](../GameObject.md) | `update()`, `nextDraw(context2d)` |
+| [`NetworkGameObject`](../NetworkGameObject.md) | `addAnimations()` + inherited `update()` and `nextDraw(context2d)` |
+| [`Decorate`](../Decorate.md) | `addAnimations()` + inherited `update()` and `nextDraw(context2d)` |
+| [`LightSource`](../LightSource.md) | inherited `addAnimations()`, `update()`, `nextDraw(context2d)` |
+| [`TileMap`](../TileMap.md) | `_relatedObjects`, `walkableTiles`, `tileSet`, `loadTileSet()` |
+
+If TypeScript reports an abstract-member error, check the class page linked above and match the exact method signature.
+
+---
+
 ## Entry and Scene Flow
 
 **SceneHandler**
